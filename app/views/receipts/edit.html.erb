@@ -1,0 +1,14 @@
+<div class="offset-md-1 col-md-10 offset-lg-2 col-lg-8 p-5 mb-5 mt-5 bg-white">
+  <h1>Edit Receipt</h1>
+  <!-- form to collect relevant info -->
+  <%= simple_form_for [@department, @receipt] do |f| %>
+    <%= f.input :amount %>
+    <%= f.input :date, order: [:day, :month, :year]%>
+    <%= f.input :description %>
+
+    <!-- Selection of available departments, gets id but shows name on the field -->
+    <%= f.collection_select(:department_id, Department.all, :id, :name)%>
+    <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit 'Update Receipt', class: "btn btn-lg btn-primary"  %>
+  <% end %>
+</div>
