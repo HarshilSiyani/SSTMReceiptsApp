@@ -1,6 +1,8 @@
 puts "--- Generate User"
 
 user = User.create!(
+  firstname: "Harshil",
+  lastname: "Siyani",
   email: "harshil@expense.com",
   password: "abc123"
   )

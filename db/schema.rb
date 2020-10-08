@@ -28,10 +28,12 @@ ActiveRecord::Schema.define(version: 2020_10_01_215655) do
     t.date "date"
     t.string "description"
     t.bigint "department_id", null: false
+    t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status", default: "pending", null: false
     t.index ["department_id"], name: "index_receipts_on_department_id"
+    t.index ["owner_id"], name: "index_receipts_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,4 +52,5 @@ ActiveRecord::Schema.define(version: 2020_10_01_215655) do
 
   add_foreign_key "departments", "users", column: "head_id"
   add_foreign_key "receipts", "departments"
+  add_foreign_key "receipts", "users", column: "owner_id"
 end

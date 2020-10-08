@@ -1,11 +1,10 @@
 <div>
   <%= link_to department_receipt_path(@department, receipt), class: "link-block" do %>
   <div class="card-body">
-    <h5 class="card-title"><%= receipt.description %></h5>
-    <p class="card-text text-muted">AUD <%= receipt.amount %></p>
-  </div>
-  <div class="card-bottom">
-    <p class="card-text">Date: <%= receipt.date %></p>
+    <h4> <%= receipt.owner.firstname %> </h4>
+    <h5><%= receipt.description %></h5>
+    <p class = "m-0">AUD <%= receipt.amount %></p>
+    <p class = "m-0">Date: <%= receipt.date %></p>
   </div>
   <% end %>
 </div>
