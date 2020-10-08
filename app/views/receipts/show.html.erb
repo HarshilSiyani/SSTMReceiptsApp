@@ -1,0 +1,18 @@
+
+<% if current_user.department_ids.include? @department.id %>
+<div class="container">
+
+<h1>Receipt</h1>
+<div class="card">
+  <%= render 'components/receipts_card', receipt: @receipt %>
+  <div class="d-flex justify-content-between">
+      <%#= link_to "Approve", department_modify_receipt_path(@receipt, my_action: "approve"), method: :patch, class: "w-100 mr-2 btn btn-lg text-white btn-primary" %>
+      <%#= link_to "Decline", department_modify_receipt_path(@receipt, my_action: "decline"), method: :patch, class: "w-100 btn btn-lg btn-outline-dark" %>
+    </div>
+  <%= link_to "Edit", edit_department_receipt_path(@department, @receipt), class: "btn btn-primary" %>
+</div>
+
+</div>
+<% else %>
+<h1>Sorry you dont have access</h1>
+<% end %>

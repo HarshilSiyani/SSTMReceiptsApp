@@ -1,0 +1,20 @@
+<h1>Departments Show</h1>
+<% if current_user.department_ids.include? @department.id %>
+<div class="container">
+  <h1> <%= @department.name %> </h1>
+  <div class="card my-3">
+    Budget
+  </div>
+  <div class="card p-2">
+
+  <h3>Pending Receipts</h3>
+
+  <% @receipts_pending.each do |receipt| %>
+
+  <li class="list-group-item"><%= render 'components/receipts_card', receipt: receipt %></li>
+    <% end %>
+  </div>
+</div>
+<% else %>
+<h1>Sorry, you dont have access</h1>
+<% end %>
