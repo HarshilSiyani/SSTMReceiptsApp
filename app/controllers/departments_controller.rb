@@ -20,7 +20,11 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id])
 
     # shows pending receipts of the selected department
-    @receipts_pending = Receipt.where("status = 'pending'" && "department_id = #{@department.id}")
+    @receipts_pending = Receipt.where("status = 'pending' AND department_id = #{@department.id}")
+
+    @receipts_approved = Receipt.where("status = 'approved' AND department_id = #{@department.id}")
+    @receipts_rejected = Receipt.where("status = 'rejected' AND department_id = #{@department.id}")
+
     # @receipt = Receipt.find
   end
 

@@ -1,4 +1,5 @@
 <h1>Departments Show</h1>
+
 <% if current_user.department_ids.include? @department.id %>
 <div class="container">
   <h1> <%= @department.name %> </h1>
@@ -9,9 +10,28 @@
 
   <h3>Pending Receipts</h3>
 
-  <% @receipts_pending.each do |receipt| %>
+  <% @receipts_pending.each do |receipt_pending| %>
+    <li class="list-group-item"><%= render 'components/receipts_card', receipt: receipt_pending %></li>
 
-  <li class="list-group-item"><%= render 'components/receipts_card', receipt: receipt %></li>
+    <% end %>
+  </div>
+    <div class="card p-2">
+
+  <h3>Approved Receipts</h3>
+
+  <% @receipts_approved.each do |receipt_approved| %>
+    <li class="list-group-item"><%= render 'components/receipts_card', receipt: receipt_approved %></li>
+
+    <% end %>
+  </div>
+    <div class="card p-2">
+
+  <h3>Rejected Receipts</h3>
+
+  <% @receipts_rejected.each do |receipt_rejected| %>
+
+    <li class="list-group-item"><%= render 'components/receipts_card', receipt: receipt_rejected %></li>
+
     <% end %>
   </div>
 </div>
