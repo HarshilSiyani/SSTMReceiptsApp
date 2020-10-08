@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :departments, foreign_key: "head_id", dependent: :destroy
 
-  devise :omniauthable, omniauth_providers: [:facebook]
+  devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice("provider", "uid")

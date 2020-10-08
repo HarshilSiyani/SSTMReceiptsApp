@@ -32,17 +32,27 @@ class ReceiptsController < ApplicationController
   def update
     @receipt = Receipt.find(params[:id])
     @department = Department.find(params[:department_id])
-    @receipt.update(receipt_params)
-
+    if params[:commit] == "Approve"
+      @receipt.status = "approved"
+      @receipt.save
     redirect_to department_path(@department)
+    else params[:commit] == "Reject"
+      @receipt.status = "rejected"
+      @receipt.save
+      redirect_to department_path(@department)
+    end
+
   end
 
   def modify
 
-    # case params[:my_action]
-    # when "approve" then approve_receipt(@receipt)
-    # when "decline" then decline_receipt(@receipt)
-    # end
+    if params[:value] == "approve"
+      approve_receipt(@receipt)
+    elsif params[:my_action] == "decline"
+      decline_receipt(@receipt)
+    else
+      redirect_to root_path
+    end
 
   end
 
@@ -51,17 +61,17 @@ class ReceiptsController < ApplicationController
   private
 
   def receipt_params
-    params.require(:receipt).permit(:amount, :date, :description, :department_id, :owner_id)
+    params.require(:receipt).permit(:amount, :date, :description, :department_id, :owner_id, :status)
   end
 
-  # def approve_receipt(receipt)
-  #   if receipt.approved
-  #     message = "Receipt approved and sent to accounts"
-  #     receipt.status = 'approved'
-  #     redirect_to department_path(@department)
-  #   else
-  #     message = "Receipt approval failed"
-  #     raise
-  #   end
-  # end
+  def approve_receipt(receipt)
+    if receipt.approved
+      message = "Receipt approved and sent to accounts"
+      receipt.status = 'approved'
+      redirect_to department_path(@department)
+    else
+      message = "Receipt approval failed"
+      raise
+    end
+  end
 end

@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_10_08_160848) do
     t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "status", default: "pending", null: false
+    t.string "status", null: false
     t.index ["department_id"], name: "index_receipts_on_department_id"
     t.index ["owner_id"], name: "index_receipts_on_owner_id"
   end
