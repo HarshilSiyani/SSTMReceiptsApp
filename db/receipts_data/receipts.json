@@ -1,0 +1,95 @@
+[
+  {
+    "id": 1,
+    "amount": 120,
+    "date": "Thu, 08 Oct 2020,",
+    "description": "Receipt number one",
+    "department_id": 1,
+    "owner_id": 1,
+    "status": "pending"
+  },
+  {
+    "id": 2,
+    "amount": 100,
+    "date": "Thu, 08 Oct 2020,",
+    "description": "Receipt number two",
+    "department_id": 1,
+    "owner_id": 1,
+    "status": "pending"
+  },
+  {
+    "id": 3,
+    "amount": 200,
+    "date": "Thu, 08 Oct 2020,",
+    "description": "Receipt number three",
+    "department_id": 1,
+    "owner_id": 2,
+    "status": "pending"
+  },
+  {
+    "id": 4,
+    "amount": 50,
+    "date": "Thu, 08 Oct 2020,",
+    "description": "Receipt number four",
+    "department_id": 1,
+    "owner_id": 2,
+    "status": "approved"
+  },
+  {
+    "id": 5,
+    "amount": 300,
+    "date": "Thu, 08 Oct 2020,",
+    "description": "Receipt number five",
+    "department_id": 1,
+    "owner_id": 1,
+    "status": "approved"
+  },
+
+  {
+    "id": 6,
+    "amount": 430,
+    "date": "Thu, 08 Oct 2020,",
+    "description": "Receipt number six",
+    "department_id": 2,
+    "owner_id": 2,
+    "status": "pending"
+  },
+  {
+    "id": 7,
+    "amount": 25,
+    "date": "Thu, 08 Oct 2020,",
+    "description": "Receipt number seven",
+    "department_id": 2,
+    "owner_id": 1,
+    "status": "approved"
+  },
+  {
+    "id": 8,
+    "amount": 500,
+    "date": "Thu, 08 Oct 2020,",
+    "description": "Receipt number eight",
+    "department_id": 2,
+    "owner_id": 1,
+    "status": "pending"
+  },
+  {
+    "id": 9,
+    "amount": 350,
+    "date": "Thu, 08 Oct 2020,",
+    "description": "Receipt number nine",
+    "department_id": 2,
+    "owner_id": 2,
+    "status": "pending"
+  },
+  {
+    "id": 10,
+    "amount": 290,
+    "date": "Thu, 08 Oct 2020,",
+    "description": "Receipt number ten",
+    "department_id": 2,
+    "owner_id": 2,
+    "status": "pending"
+  }
+
+
+]

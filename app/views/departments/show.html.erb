@@ -1,12 +1,12 @@
 <h1>Departments Show</h1>
 
 <% if current_user.department_ids.include? @department.id %>
-<div class="container">
+
   <h1> <%= @department.name %> </h1>
   <div class="card my-3">
     Budget
   </div>
-  <div class="card p-2">
+  <div class="card p-2 my-2">
 
   <h3>Pending Receipts</h3>
 
@@ -15,7 +15,7 @@
 
     <% end %>
   </div>
-    <div class="card p-2">
+    <div class="card p-2 my-2">
 
   <h3>Approved Receipts</h3>
 
@@ -24,7 +24,7 @@
 
     <% end %>
   </div>
-    <div class="card p-2">
+    <div class="card p-2 my-2">
 
   <h3>Rejected Receipts</h3>
 
@@ -34,7 +34,6 @@
 
     <% end %>
   </div>
-</div>
 <% else %>
 <h1>Sorry, you dont have access</h1>
 <% end %>

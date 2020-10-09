@@ -4,6 +4,8 @@ class Receipt < ApplicationRecord
 
   before_create :set_default_status
 
+  validates :amount, :description, :department_id, presence: true
+
   def set_default_status
     status = "pending"
   end

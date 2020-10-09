@@ -33,8 +33,16 @@ gem 'devise'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+
+# OAuth
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+
+# REST calls to Microsoft Graph
+gem 'httparty', '~> 0.18.1'
+
+
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

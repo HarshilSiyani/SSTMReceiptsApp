@@ -44,11 +44,4 @@ class DepartmentsController < ApplicationController
   def department_params
     params.require(:department).permit(:name, :head_id)
   end
-
-  #when user approves expense
-  def approve_expense
-    @receipt
-    @receipt.status = "approved"
-
-  end
 end
