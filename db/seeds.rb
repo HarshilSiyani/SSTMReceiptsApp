@@ -6,7 +6,49 @@ user = User.create!(
   email: "harshil@expense.com",
   password: "abc123"
   )
+
+user = User.create!(
+  firstname: "Dikesh",
+  lastname: "Vekeria",
+  email: "dikesh@expense.com",
+  password: "abc123"
+  )
 puts "Finished User creation"
+
+puts "Seeding Departments"
+
+department = Department.create!(
+  name: "Media",
+  head_id: 1,
+  )
+puts "Department: Media seeded"
+
+department = Department.create!(
+  name:"Development",
+  head_id: 2,
+  )
+puts "Department: Development seeded"
+
+puts "Seeding Receipts"
+count = 1;
+receipt_file = File.open('db/receipts_data/receipts.json').read
+JSON.parse(receipt_file).each do |record|
+  receipt = Receipt.new({
+    amount: record["amount"],
+    description: record["description"],
+    date: record["date"],
+    department_id: record["department_id"],
+    owner_id: record["owner_id"],
+    status: record["status"]
+  })
+  if receipt.save!
+    puts "Receipt number #{count}";
+    count += 1;
+  else
+    puts "Error at receipt number #{count}";
+  end
+end
+puts "Finished seeding Receipts"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #

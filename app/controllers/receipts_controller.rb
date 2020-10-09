@@ -36,10 +36,15 @@ class ReceiptsController < ApplicationController
       @receipt.status = "approved"
       @receipt.save
     redirect_to department_path(@department)
-    else params[:commit] == "Reject"
+    elsif params[:commit] == "Reject"
       @receipt.status = "rejected"
       @receipt.save
       redirect_to department_path(@department)
+    elsif params[:commit] == "Update Receipt"
+      @receipt.update(receipt_params)
+      redirect_to department_path(@department)
+    else
+      raise
     end
 
   end

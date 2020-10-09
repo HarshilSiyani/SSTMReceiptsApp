@@ -1,10 +1,15 @@
-<div class="container">
+
 
 <%= link_to "New Receipt", new_receipt_path, class: "btn btn-primary" %>
 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+
+<% @user_departments.each do |department| %>
+  <%= link_to "#{department.name}", department_path(department), class: "btn btn-primary" %>
+  <% end %>
+<!-- Display each receipts of current user -->
   <% @receipts.each do |receipt| %>
-<div class="card m-3">
-  <h5><%= receipt.amount %></h5>
+<div class="card my-2 p-3">
+  <h5>$<%= receipt.amount %></h5>
   <h5><%= receipt.date %></h5>
   <h5><%= receipt.status %></h5>
   <h5><%= receipt.description %></h5>
@@ -12,4 +17,3 @@
 </div>
   <% end %>
 
-</div>
