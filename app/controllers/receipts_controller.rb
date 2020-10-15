@@ -1,6 +1,10 @@
 class ReceiptsController < ApplicationController
   skip_before_action :authenticate_user!, only: :new
 
+  def index
+    @receipts = Receipt.all
+  end
+
   def new
     @receipt = Receipt.new
     @departments = Department.all
@@ -32,51 +36,47 @@ class ReceiptsController < ApplicationController
   def update
     @receipt = Receipt.find(params[:id])
     @department = Department.find(params[:department_id])
-    if params[:commit] == "Approve"
-      @receipt.status = "approved"
-      @receipt.save
-    redirect_to department_path(@department)
-    elsif params[:commit] == "Reject"
-      @receipt.status = "rejected"
-      @receipt.save
+    if @receipt.status == "pending"
+      if params[:commit] == "Approve"
+        @receipt.status = "approved"
+        @receipt.save
       redirect_to department_path(@department)
-    elsif params[:commit] == "Update Receipt"
-      @receipt.update(receipt_params)
-      redirect_to department_path(@department)
+      elsif params[:commit] == "Reject"
+        @receipt.status = "rejected"
+        @receipt.save
+        redirect_to department_path(@department)
+      elsif params[:commit] == "Update Receipt"
+        @receipt.update(receipt_params)
+        redirect_to department_path(@department)
+      else
+        @receipt.status = "pending"
+        @receipt.save
+      end
     else
-      raise
+      if params[:commit] == "Cash"
+        @receipt.paid = true
+        @receipt.paidby = "Cash"
+        @receipt.save
+        redirect_to accounts_path
+      elsif params[:commit] == "Bank"
+        @receipt.paid = true
+        @receipt.paidby = "Bank"
+        @receipt.save
+        redirect_to accounts_path
+      else
+
+      end
     end
 
   end
 
-  def modify
-
-    if params[:value] == "approve"
-      approve_receipt(@receipt)
-    elsif params[:my_action] == "decline"
-      decline_receipt(@receipt)
-    else
-      redirect_to root_path
-    end
-
-  end
 
 
 
   private
 
   def receipt_params
-    params.require(:receipt).permit(:amount, :date, :description, :department_id, :owner_id, :status)
+    params.require(:receipt).permit(:amount, :date, :description, :department_id, :owner_id, :status, :paid)
   end
 
-  def approve_receipt(receipt)
-    if receipt.approved
-      message = "Receipt approved and sent to accounts"
-      receipt.status = 'approved'
-      redirect_to department_path(@department)
-    else
-      message = "Receipt approval failed"
-      raise
-    end
-  end
 end

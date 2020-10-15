@@ -40,7 +40,14 @@ gem 'omniauth-google-oauth2'
 
 # REST calls to Microsoft Graph
 gem 'httparty', '~> 0.18.1'
+# Search within the app
+gem 'pg_search'
+gem 'blazer'
 
+gem 'rails_admin', '~> 2.0'
+
+# gem 'activeadmin', github: 'activeadmin/activeadmin'
+# gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 
 group :development, :test do  gem 'pry-byebug'

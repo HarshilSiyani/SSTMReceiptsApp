@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
@@ -10,4 +11,8 @@ Rails.application.routes.draw do
 
   resources :receipts, only: [:new, :create]
 
+  resources :accounts, only: [:index]
+  get 'accounts/paid', to: 'accounts#paid'
+
+  mount Blazer::Engine, at: "blazer"
 end

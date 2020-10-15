@@ -15,7 +15,6 @@ class DepartmentsController < ApplicationController
   end
 
   def show
-
     # find department id from the params to show the page of selected
     @department = Department.find(params[:id])
 
@@ -28,7 +27,18 @@ class DepartmentsController < ApplicationController
     # @receipt = Receipt.find
   end
 
+  def approved_receipts
+    @department = Department.find(params[:id])
+    @receipts_approved = Receipt.where("status = 'approved' AND department_id = #{@department.id}")
+  end
+
+  def rejected_receipts
+    @department = Department.find(params[:id])
+    @receipts_rejected = Receipt.where("status = 'rejected' AND department_id = #{@department.id}")
+  end
+
   def edit
+
     @department = Department.find(params[:id])
   end
 

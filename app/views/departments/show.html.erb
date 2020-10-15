@@ -6,12 +6,14 @@
   <div class="card my-3">
     Budget
   </div>
+
+
   <div class="card p-2 my-2">
 
   <h3>Pending Receipts</h3>
 
   <% @receipts_pending.each do |receipt_pending| %>
-    <li class="list-group-item"><%= render 'components/receipts_card', receipt: receipt_pending %></li>
+    <li class="list-group-item bg-warning"><%= render 'components/receipts_card', receipt: receipt_pending %></li>
 
     <% end %>
   </div>
@@ -20,7 +22,7 @@
   <h3>Approved Receipts</h3>
 
   <% @receipts_approved.each do |receipt_approved| %>
-    <li class="list-group-item"><%= render 'components/receipts_card', receipt: receipt_approved %></li>
+    <li class="list-group-item bg-success"><%= render 'components/receipts_card', receipt: receipt_approved %></li>
 
     <% end %>
   </div>
@@ -30,7 +32,7 @@
 
   <% @receipts_rejected.each do |receipt_rejected| %>
 
-    <li class="list-group-item"><%= render 'components/receipts_card', receipt: receipt_rejected %></li>
+    <li class="list-group-item bg-danger"><%= render 'components/receipts_card', receipt: receipt_rejected %></li>
 
     <% end %>
   </div>
