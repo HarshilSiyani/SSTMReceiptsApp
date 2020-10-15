@@ -6,7 +6,8 @@
     "description": "Receipt number one",
     "department_id": 1,
     "owner_id": 1,
-    "status": "pending"
+    "status": "pending",
+    "paid": false
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "description": "Receipt number two",
     "department_id": 1,
     "owner_id": 1,
-    "status": "pending"
+    "status": "pending",
+    "paid": false
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "description": "Receipt number three",
     "department_id": 1,
     "owner_id": 2,
-    "status": "pending"
+    "status": "pending",
+    "paid": false
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "description": "Receipt number four",
     "department_id": 1,
     "owner_id": 2,
-    "status": "approved"
+    "status": "approved",
+    "paid": false
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "description": "Receipt number five",
     "department_id": 1,
     "owner_id": 1,
-    "status": "approved"
+    "status": "approved",
+    "paid": false
   },
 
   {
@@ -52,7 +57,8 @@
     "description": "Receipt number six",
     "department_id": 2,
     "owner_id": 2,
-    "status": "pending"
+    "status": "pending",
+    "paid": false
   },
   {
     "id": 7,
@@ -61,7 +67,8 @@
     "description": "Receipt number seven",
     "department_id": 2,
     "owner_id": 1,
-    "status": "approved"
+    "status": "approved",
+    "paid": false
   },
   {
     "id": 8,
@@ -70,7 +77,8 @@
     "description": "Receipt number eight",
     "department_id": 2,
     "owner_id": 1,
-    "status": "pending"
+    "status": "pending",
+    "paid": false
   },
   {
     "id": 9,
@@ -79,7 +87,8 @@
     "description": "Receipt number nine",
     "department_id": 2,
     "owner_id": 2,
-    "status": "pending"
+    "status": "pending",
+    "paid": false
   },
   {
     "id": 10,
@@ -88,7 +97,8 @@
     "description": "Receipt number ten",
     "department_id": 2,
     "owner_id": 2,
-    "status": "pending"
+    "status": "pending",
+    "paid": false
   }
 
 

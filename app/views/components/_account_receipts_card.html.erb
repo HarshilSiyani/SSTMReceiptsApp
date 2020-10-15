@@ -1,8 +1,11 @@
 <div>
-  <%= link_to department_receipt_path(@department, receipt), class: "link-block text-decoration-none text-dark" do %>
+
+  <%= link_to department_receipt_path(receipt.department.id, receipt), class: "link-block text-decoration-none text-dark" do %>
   <div class="card-body">
     <h4> <%= receipt.owner.first_name %> <%= receipt.owner.last_name %> </h4>
     <h5><%= receipt.description %></h5>
+    <h5><%= receipt.department.name %></h5>
+    <h5> <%= receipt.status %> </h5>
     <p class = "m-0">AUD $<%= receipt.amount %></p>
     <p class = "m-0">Date: <%= receipt.date %></p>
   </div>

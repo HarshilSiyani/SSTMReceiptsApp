@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :departments, foreign_key: "head_id", dependent: :destroy
-
+  has_many :receipts
   devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   def self.find_for_facebook_oauth(auth)

@@ -1,3 +1,4 @@
 class Department < ApplicationRecord
-  belongs_to :head, class_name: "User"
+  has_and_belongs_to_many :head, class_name: "User"
+  has_many :receipts
 end

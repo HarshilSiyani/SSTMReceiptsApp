@@ -1,0 +1,15 @@
+<% if current_user.accounts %>
+<h1>Accounts</h1>
+<!--   <%#= form_tag accounts_path, method: :get do %>
+  <%#= label_tag(:query, "Search for:") %>
+  <%#= text_field_tag(:query) %>
+  <%#= submit_tag "Search", class: "btn btn-primary" %>
+<%# end %> -->
+<div>
+  <h4>Reimbursement pending</h4>
+  <% @receipts_unpaid.each do |receipt| %>
+    <li class="list-group-item card bg-success my-2"><%= render 'components/account_receipts_card', receipt: receipt %></li>
+    <% end %>
+</div>
+
+<% end %>

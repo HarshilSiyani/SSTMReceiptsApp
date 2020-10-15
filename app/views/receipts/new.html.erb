@@ -4,16 +4,17 @@
 
   <!-- form to collect relevant info -->
   <%= simple_form_for(@receipt) do |f| %>
-    <%= f.input :amount, required: true %>
-    <%= f.input :date, order: [:day, :month, :year]%>
-    <%= f.input :description, required: true %>
-    <%= f.hidden_field :owner_id, :value => current_user.id %>
-    <%= f.hidden_field :status, :value => "pending" %>
+  <%= f.input :amount, required: true %>
+  <%= f.input :date, order: [:day, :month, :year]%>
+  <%= f.input :description, required: true %>
+  <%= f.hidden_field :owner_id, :value => current_user.id %>
+  <%= f.hidden_field :status, :value => "pending" %>
+  <%= f.hidden_field :paid, :value => false %>
 
-    <!-- Selection of available departments, gets id but shows name on the field -->
-    <%= f.collection_select(:department_id, Department.all, :id, :name)%>
-    <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit 'Add Receipt', class: "btn btn-lg btn-primary"  %>
+  <!-- Selection of available departments, gets id but shows name on the field -->
+  <%= f.collection_select(:department_id, Department.all, :id, :name)%>
+  <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit 'Add Receipt', class: "btn btn-lg btn-primary"  %>
   <% end %>
 </div>
 

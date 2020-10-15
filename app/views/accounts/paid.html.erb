@@ -1,0 +1,10 @@
+<h2>Paid Receipts</h2>
+<h3>Total paid = <%= @sum %></h3>
+<div>
+
+  <% @receipts.each do |receipt| %>
+    <li class="list-group-item card my-2"><%= render 'components/account_receipts_card', receipt: receipt %>
+      <%= receipt.paidby %>
+    </li>
+  <% end %>
+</div>

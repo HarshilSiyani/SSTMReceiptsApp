@@ -1,17 +1,18 @@
 puts "--- Generate User"
 
 user = User.create!(
-  firstname: "Harshil",
-  lastname: "Siyani",
+  first_name: "Harshil",
+  last_name: "Siyani",
   email: "harshil@expense.com",
   password: "abc123"
   )
 
 user = User.create!(
-  firstname: "Dikesh",
-  lastname: "Vekeria",
+  first_name: "Dikesh",
+  last_name: "Vekeria",
   email: "dikesh@expense.com",
-  password: "abc123"
+  password: "abc123",
+  accounts: true
   )
 puts "Finished User creation"
 
@@ -39,7 +40,8 @@ JSON.parse(receipt_file).each do |record|
     date: record["date"],
     department_id: record["department_id"],
     owner_id: record["owner_id"],
-    status: record["status"]
+    status: record["status"],
+    paid: record["paid"]
   })
   if receipt.save!
     puts "Receipt number #{count}";
